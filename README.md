@@ -15,10 +15,11 @@ Once  this  was completed, I was successfully able to connect and load data in D
 
 Patient-level transformations.sql contains the Age group and patient type data  transformation code. For creating the age bucket, as some ages are null of patients so I have taken the average of the ages and replaced the null values with that and then created the age buckets.
 
-Appointment-level transformaations.sql contains the data transforation for patient_id and their latest date of visit and the number of days since their last visit. The to_char function was searched on AI.
+Appointment-level transformations.sql contains the data transforation for patient_id and their latest date of visit and the number of days since their last visit. The to_char function was searched on AI.
 
-Medication category (e.g., Pain Relief, Diabetes, Heart, etc.)
-Prescription frequency (First-time, Repeat)
+Prescription-level transformations.sql is the file where the data transformation has been done to take out medication category for medication name and then to check for each patient if it is a first time or a repeat dose. 
+
+
 
 
 
