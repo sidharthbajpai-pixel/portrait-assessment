@@ -30,6 +30,8 @@ to_char and
 
 These functions were taken as reference from the AI tool for doing the data analysis.
 
+In the data analysis part there was a question which asked to  bifurcate medication_name into categories, so I had to use AI to understand about nature of medicines and under which category it should fall. Based on this assumption, I have used case when statements and put the medication under suitable categories and then further did the data analysis on it. You may find this in the **age_group vs category vs max_prescriptions.sql file**.
+
 This dataset was highly engaging, and I genuinely enjoyed working through the assessment.
 
 
