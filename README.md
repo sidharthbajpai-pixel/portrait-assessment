@@ -1,23 +1,38 @@
 # portrait-assessment
 
-To set up and connect to a PostgreSQL database using Docker, I first made sure that Docker and Docker Compose were installed on my system. Then I created a folder as healthcare on my desktop and put all the files from
-the repository there.
-Then, I created a docker-compose.yml file to define the PostgreSQL service. This docker-compose.yml was given in the repository and I saved it with .yml extension.
-After saving the file, I ran the command docker-compose up -d on powershell to start the container. It gave me an error there as i was not inside the directory. I took help from chatGPT to correct it.
+To set up and connect to a PostgreSQL database using Docker, I first made sure that Docker and Docker Compose were installed on my system. Then I created a folder as healthcare on my desktop and put all the files from the repository there.
+Then, I created a docker-compose.yml file to define the PostgreSQL service. This docker-compose.yml was given in the repository.
+
+After saving the file, I ran the command docker-compose up -d on powershell to start the container.
 
 Once the service was up and running, the database became accessible at localhost:5432, with the database name set to healthcare, and the default username and password both set to postgres.
 
 Once the connection was made I use DBeaver GUI  to connect to my PostgreSQL database. I created the new connection in it and filled the connection details and I got connected with database.
 
-I installed the dependencies from requirement.txt file and then I loaded the csv files by using python load_data.py command on powershell. 
+I installed the dependencies from requirement.txt file and then I loaded the csv files by using python load_data.py command on powershell and then I started with my data analysis on DBeaver. Once  this  was completed, I was successfully able to connect and load data in Dbeaver. This is how you can run the sql code.
 
-Once  this  was completed, I was successfully able to connect and load data in Dbeaver.
+Files:
+**Patient-level transformations.sql** contains the Age group and patient type data  transformation code. 
 
-Patient-level transformations.sql contains the Age group and patient type data  transformation code. For creating the age bucket, as some ages are null of patients so I have taken the average of the ages and replaced the null values with that and then created the age buckets.
+**Appointment-level transformations.sql** contains the data transforation for patient_id and their latest date of visit and the number of days since their last visit.
 
-Appointment-level transformations.sql contains the data transforation for patient_id and their latest date of visit and the number of days since their last visit. The to_char function was searched on AI.
+**Prescription-level transformations.sql** is the file where the data transformation has been done to take out medication category for medication name and then to check for each patient if it is a first time or a repeat dose. 
 
-Prescription-level transformations.sql is the file where the data transformation has been done to take out medication category for medication name and then to check for each patient if it is a first time or a repeat dose. 
+The other sql code files are there on which I have taken out the analysis and answered abount the business insights. The result is present in the code files only along with the conclusion that was derived after writing the sql code. 
+
+In the patients.csv file, there were some null ages present for the patient which is not possible. In order to tackle this, I have taken the average age of the patients and replaced the null values with that. 
+
+AI tool was also used at times at the time of setting up the ETL pipeline and taking out some functions on postgress like 
+to_char and 
+(EXTRACT(YEAR FROM AGE(current_date, registration_date)) * 12 +
+        EXTRACT(MONTH FROM AGE(current_date, registration_date))) AS total_months 
+  and corr(). 
+
+These functions were taken as reference from the AI tool for doing the data analysis.
+
+This dataset was highly engaging, and I genuinely enjoyed working through the assessment.
+
+
 
 
 
