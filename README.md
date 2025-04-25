@@ -13,6 +13,10 @@ I installed the dependencies from requirement.txt file and then I loaded the csv
 
 Once  this  was completed, I was successfully able to connect and load data in Dbeaver.
 
+Patient-level transformations.sql contains the Age group and patient type data  transformation code. For creating the age bucket, as some ages are null of patients so I have taken the average of the ages and replaced the null values with that and then created the age buckets.
+
+
+
 
 
 
